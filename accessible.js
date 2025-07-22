@@ -1,4 +1,7 @@
-//ARIA-EXPANDED AND ARIA-HIDDEN TOGGLE - PAGE-WIDE
+// 🟦 = ENTIRE SECTION DIVIDER
+
+
+//ARIA-EXPANDED AND ARIA-HIDDEN TOGGLE
             function toggleCandyContent(expandableClass) {
             const candyElements = document.querySelectorAll(`.${expandableClass}`);
 
@@ -26,6 +29,8 @@
             });
         });
 
+
+// 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦
 
 
 //MOBILE MENU MODAL
@@ -128,6 +133,8 @@
             document.getElementById("mobile-menu-modal").classList.add("hidden");
 
 
+// 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦
+
 
 //CLOCK FUNCTIONALITY
         // Simple countdown timer (for demo purposes)
@@ -177,6 +184,8 @@
             setInterval(updateCountdown, 60000);
 
 
+// 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦
+
 
 //TOGGLE MOTION
         function setupMotionToggle(buttonId, labelId) {
@@ -220,6 +229,8 @@
         setupMotionToggle("toggle-motion-modal", "toggle-motion-modal-label");
         applyStoredMotionPreference();
 
+
+// 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦
 
 
 //TOGGLE MONOCHROME MODE
@@ -265,44 +276,160 @@
         applyStoredMonochromePreference();
 
 
+// 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦
 
-//FORM FIELD ERROR HANDLING
-            document.getElementById('contactForm').addEventListener('submit', function (event) {
-                const nameInput = document.getElementById('name');
-                const emailInput = document.getElementById('email');
-                const interestSelect = document.getElementById('interest');
 
-                let hasError = false;
+//CONTACT FORM FIELD ERROR HANDLING
 
-                // Name validation
-                if (!nameInput.value.trim()) {
-                    document.getElementById('name-error').classList.remove('hidden');
-                    hasError = true;
-                } else {
-                    document.getElementById('name-error').classList.add('hidden');
-                }
+            const form = document.getElementById("contact-form");
 
-                // Email validation
-                if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
-                    document.getElementById('email-error').classList.remove('hidden');
-                    hasError = true;
-                } else {
-                    document.getElementById('email-error').classList.add('hidden');
-                }
+            if (form) {
+                const fullNameInput = document.getElementById("full-name");
+                const fullNameError = document.getElementById("full-name-error");
+                const emailInput = document.getElementById("email");
+                const emailError = document.getElementById("email-error");
+                const interestInput = document.getElementById("interest");
+                const interestError = document.getElementById("interest-error");
 
-                // Interest validation
-                if (!interestSelect.value) {
-                    document.getElementById('interest-error').classList.remove('hidden');
-                    hasError = true;
-                } else {
-                    document.getElementById('interest-error').classList.add('hidden');
-                }
+                //Full Name Blur Validation
+                fullNameInput.addEventListener("blur", () => {
+                    const fullName = fullNameInput.value.trim();
+                    const nameIsValidFormat = /^[A-Za-z]+(['-]?[A-Za-z]+)* [A-Za-z]+(['-]?[A-Za-z]+)*$/.test(fullName);
 
-                if (hasError) {
-                    event.preventDefault();
-                }
-            });
+                    if (!fullNameInput.checkValidity() || !nameIsValidFormat) {
+                        fullNameInput.setAttribute("aria-invalid", "true");
+                        fullNameInput.setAttribute("aria-describedby", "full-name-error");
 
+                        fullNameError.classList.remove("hidden");
+                        fullNameError.setAttribute("aria-hidden", "false");
+                    } else {
+                        fullNameInput.setAttribute("aria-invalid", "false");
+                        fullNameInput.removeAttribute("aria-describedby");
+
+                        fullNameError.classList.add("hidden");
+                        fullNameError.setAttribute("aria-hidden", "true");
+                    }
+                });
+
+            //E-mail Blur Validation
+                emailInput.addEventListener("blur", () => {
+                    const email = emailInput.value.trim();
+                    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+                    if (!emailInput.checkValidity() || !isValidEmail) {
+                        emailInput.setAttribute("aria-invalid", "true");
+                        emailInput.setAttribute("aria-describedby", "email-error");
+
+                        emailError.classList.remove("hidden");
+                        emailError.setAttribute("aria-hidden", "false");
+                    } else {
+                        emailInput.setAttribute("aria-invalid", "false");
+                        emailInput.removeAttribute("aria-describedby");
+
+                        emailError.classList.add("hidden");
+                        emailError.setAttribute("aria-hidden", "true");
+                    }
+                });
+
+            //Interst Blur Validation
+                interestInput.addEventListener("blur", () => {
+                    const selectedValue = interestInput.value;
+
+                    if (!interestInput.checkValidity() || selectedValue === "") {
+                        interestInput.setAttribute("aria-invalid", "true");
+                        interestInput.setAttribute("aria-describedby", "interest-error");
+
+                        interestError.classList.remove("hidden");
+                        interestError.setAttribute("aria-hidden", "false");
+                    } else {
+                        interestInput.setAttribute("aria-invalid", "false");
+                        interestInput.removeAttribute("aria-describedby");
+
+                        interestError.classList.add("hidden");
+                        interestError.setAttribute("aria-hidden", "true");
+                    }
+                });
+
+                // Submit Validation
+                form.addEventListener("submit", (e) => {
+                    let hasError = false;
+                    let didFocus = false;
+
+                //Full Name Validation
+                    const fullName = fullNameInput.value.trim();
+                    const nameIsValidFormat = /^[A-Za-z]+(['-]?[A-Za-z]+)* [A-Za-z]+(['-]?[A-Za-z]+)*$/.test(fullName);
+                    if (!fullNameInput.checkValidity() || !nameIsValidFormat) {
+                        fullNameInput.setAttribute("aria-invalid", "true");
+                        fullNameInput.setAttribute("aria-describedby", "full-name-error");
+
+                        fullNameError.classList.remove("hidden");
+                        fullNameError.setAttribute("aria-hidden", "false");
+
+                        if (!didFocus) {
+                            fullNameInput.focus();
+                            didFocus = true;
+                        }
+                        hasError = true;
+                    } else {
+                        fullNameInput.setAttribute("aria-invalid", "false");
+                        fullNameInput.removeAttribute("aria-describedby");
+
+                        fullNameError.classList.add("hidden");
+                        fullNameError.setAttribute("aria-hidden", "true");
+                    }
+
+                //E-mail Validation
+                    const email = emailInput.value.trim();
+                    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                    if (!emailInput.checkValidity() || !isValidEmail) {
+                        emailInput.setAttribute("aria-invalid", "true");
+                        emailInput.setAttribute("aria-describedby", "email-error");
+
+                        emailError.classList.remove("hidden");
+                        emailError.setAttribute("aria-hidden", "false");
+
+                        if (!didFocus) {
+                            emailInput.focus();
+                            didFocus = true;
+                        }
+                        hasError = true;
+                    } else {
+                        emailInput.setAttribute("aria-invalid", "false");
+                        emailInput.removeAttribute("aria-describedby");
+
+                        emailError.classList.add("hidden");
+                        emailError.setAttribute("aria-hidden", "true");
+                    }
+
+                //Interest Validation
+                    if (!interestInput.checkValidity() || interestInput.value === "") {
+                        interestInput.setAttribute("aria-invalid", "true");
+                        interestInput.setAttribute("aria-describedby", "interest-error");
+
+                        interestError.classList.remove("hidden");
+                        interestError.setAttribute("aria-hidden", "false");
+
+                        if (!didFocus) {
+                            interestInput.focus();
+                            didFocus = true;
+                        }
+                        hasError = true;
+                    } else {
+                        interestInput.setAttribute("aria-invalid", "false");
+                        interestInput.removeAttribute("aria-describedby");
+
+                        interestError.classList.add("hidden");
+                        interestError.setAttribute("aria-hidden", "true");
+                    }
+
+                    if (hasError) {
+                        e.preventDefault();
+                    }
+                });
+            }
+
+
+// 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦
 
 
 //FLIP CHEVRONS
@@ -325,24 +452,3 @@
         });
 
 //TEST AREA ==================================================
-    document.addEventListener("DOMContentLoaded", () => {
-        const form = document.getElementById("contact-form");
-
-        if (form) {
-            form.addEventListener("submit",  (e) => {
-                console.log('Form submit triggered');
-                const input = document.getElementById("full-name");
-                const errorMessage = document.getElementById("full-name-error");
-
-                if (!input.checkValidity()) {
-                    e.preventDefault();
-                    input.setAttribute("aria-invalid", "true");
-                    errorMessage.hidden = false;
-                    input.focus();
-                } else {
-                    input.setAttribute("aria-invalid", "false");
-                    errorMessage.hidden = true;
-                }
-            });
-        }
-    });

@@ -31,7 +31,7 @@
 
 <!--NAVIGATION SECTION-->
 <header class="text-[clamp(1.5rem,2vw,1.6rem)] sm:text-[clamp(0.5rem,2.5vw,0.7rem)] md:text-[clamp(0.7rem,3vw,0.9rem)] lg:text-[clamp(0.7rem,4vw,1rem)]">
-<div class="bg-black bg-opacity-80 backdrop-blur-md w-full z-50 md:fixed">
+<div class="bg-black bg-opacity-80 backdrop-blur-md w-full z-50 lg:fixed p-2">
 
 <!--NAIN NAV TITLE-->
 <div class="flex items-center space-x-2">
@@ -59,10 +59,11 @@
 
 
 <!--MAIN NAV CONTENT-->
-<div class="flex mx-w-full items-center">
-<ul class="flex">
-<nav class="hidden lg:inline">
-<div class="flex space-x-6 mt-3 mx-5">
+<div class="flex flex-wrap w-full items-center justify-between">
+    <div class="flex mt-3 pl-4">
+    <nav class="hidden lg:inline">
+<ul class="flex gap-x-6 ml-6">
+
 <li>
 <a href="#facts" aria-label="same-page" class="text-purple-200 focus:bg-gray-300 focus:bg-opacity-30 focus:text-white hover:bg-gray-300 hover:bg-opacity-30 hover:text-white px-1 py-2 rounded-md md:mb-1 md:mt-1">Facts</a>
 </li>
@@ -86,6 +87,7 @@
 <li>
 <a href="#contact" aria-label="same-page" class="text-purple-200 focus:bg-gray-300 focus:bg-opacity-30 focus:text-white hover:bg-gray-300 hover:bg-opacity-30 hover:text-white px-1 py-2 rounded-md md:mb-1 mt-1">Contact</a>
 </li>
+
 </div>
 </nav>
 </ul>
@@ -93,9 +95,10 @@
 
 <!-- 🟪🟪🟪🟪🟪🟪🟪🟪🟪🟪 -->
 
+
 <!-- NAV BOOK NOW BUTTON-->
-<div class="text-[clamp(0.7rem,3vw,1.1rem)] hidden lg:inline ml-20 sm:ml-5 md:ml-10 lg:ml-10 -mr-20 sm:-ml-5 md:-ml-10 lg:-ml-10  mt-6">
-<button class="bg-purple-600 hover:bg-purple-800 focus:bg-purple-800 hover:bg-purple-800 text-white px-3 py-3 rounded-md orbitron pulse">
+<div class="hidden lg:inline  mt-6 pr-12">
+<button class="flex flex-shrink-0 bg-purple-600 hover:bg-purple-800 focus:bg-purple-800 hover:bg-purple-800 text-white px-3 py-3 rounded-md orbitron pulse">
 <div class="relative items-center justify-center">
 <span class="absolute inset-0 -mx-2 -my-2 bg-black bg-opacity-40 rounded" aria-hidden="true"></span>
 <span class="relative z-10 color-white ">
@@ -105,6 +108,7 @@ BOOK NOW <i aria-hidden="True" class="fas fa-rocket ml-1"></i>
 </button>
 </div>
 </div>
+
 </div>
 
 
@@ -112,7 +116,7 @@ BOOK NOW <i aria-hidden="True" class="fas fa-rocket ml-1"></i>
 
 
 <!--ACCESSIBILITY CONTROLS-->
-<div class="flex -mt-3 ml-5 p-1">
+<div class="hidden lg:inline flex -mt-3 ml-5 p-1">
 <div class="inline-block">
 <button aria-expanded="false" data-expandable="accessiblility-controls" class="toggle-button expandable-content items-center px-4 py-1 space-x-2 border-2 border-white hover:border-blue-900 focus:border-blue-900 text-white bg-blue-900 hover:bg-black focus:bg-black rounded-3xl">
 <i aria-hidden="true" class="text-2xl fas fa-universal-access"></i>
@@ -121,8 +125,8 @@ BOOK NOW <i aria-hidden="True" class="fas fa-rocket ml-1"></i>
 
 <!-- TOGGLE MOTION BUTTON-->
 <div class="flex">
-<div class="accessiblility-controls hidden mt-1 mx-2">
-<button id="toggle-motion" class="relative border-2 border-2 border-white hover:border-blue-900 focus:border-blue-900 text-white bg-black px-3 py-2 rounded-md font-md hidden lg:inline flex items-center">
+<div class="accessiblility-controls hidden mt-2 mx-2">
+<button id="toggle-motion" class="relative border-2 border-white hover:border-blue-900 focus:border-blue-900 focus:bg-blue-900 text-white bg-black px-3 py-2 rounded-md font-md hidden lg:inline flex items-center">
 <div class="relative flex items-center justify-center">
 <span id="toggle-motion-label" class="relative z-10 color-white orbitron">Toggle Motion: Off</span>
 </div>
@@ -130,15 +134,15 @@ BOOK NOW <i aria-hidden="True" class="fas fa-rocket ml-1"></i>
 </div>
 
 <!-- GRAYSCALE -->
-<div class="accessiblility-controls hidden mt-1 mx-2">
-<button id="toggle-monochrome" class="relative border-2 border-2 border-white hover:border-blue-900 focus:border-blue-900 text-white bg-black px-3 py-2 rounded-md font-md hidden lg:inline flex items-center">
+<div class="accessiblility-controls hidden mt-2 mx-2">
+<button id="toggle-monochrome" class="relative border-2 border-white hover:border-blue-900 focus:border-blue-900 focus:bg-blue-900 text-white bg-black px-3 py-2 rounded-md font-md hidden lg:inline flex items-center">
 <div class="relative flex items-center justify-center">
 <span id="toggle-monochrome-label" class="relative z-10 color-white orbitron">Monochrome Mode: Off</span>
 </div>
 </button>
 </div>
-</div>
 
+</div>
 </div>
 </div>
 </div>
@@ -198,7 +202,7 @@ LEARN MORE
 
 <!--IMAGE & CLOCK SECTION-->
 <div class="flex-1 floating relative">
-<img src="images/PIA15162.jpg" alt="" class="rounded-2xl shadow-2xl border-4 border-purple-300 transform rotate-6 w-full max-w-[clamp(18rem,40vw,32rem)]">
+<img src="images/PIA15162.jpg" alt="" class="rounded-2xl shadow-2xl border-4 border-purple-300 transform rotate-6 w-full max-w-[clamp(22rem,40vw,32rem)]">
 
 <!-- LAUNCH COUNTDOWN CLOCK-->
 <div class="absolute -bottom-[clamp(2rem,4vw,4rem)] right-0 bg-purple-900 p-[clamp(1rem,2vw,2rem)] rounded-xl shadow-lg text-center border border-white">
@@ -220,10 +224,10 @@ LEARN MORE
 <div class="countdown-digit px-3 py-1 rounded orbitron text-white">08</div>
 <span aria-hidden="true" class="mt-1">MIN</span>
 </div>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
 </div>
 </section>
 
@@ -707,7 +711,7 @@ VIEW ALL PACKAGES
 <span class="text-[clamp(1rem,4vw,1.4rem)] text-white">Is it safe to travel to Mercury?</span>
 <i aria-hidden="True" class="button-chevron fas fa-chevron-down text-purple-400 transition-transform duration-300"></i>
 </button>
-<div aria-hidden="false" class="faq-1 px-6 pb-6 text-gray-200 border border-purple-400 rounded-lg mt-1 hidden">
+<div aria-hidden="true" class="faq-1 px-6 pb-6 text-gray-200 border border-purple-400 rounded-lg mt-1 hidden">
 <p class="mt-4">Absolutely! Our spacecraft are equipped with the latest radiation shielding and thermal protection systems. All travelers undergo extensive training and are provided with advanced thermal suits that maintain comfortable temperatures regardless of Mercury's extreme surface conditions.</p>
 </div>
 </div>
@@ -718,7 +722,7 @@ VIEW ALL PACKAGES
 <span class="text-[clamp(1rem,4vw,1.4rem)] text-white">How long does the journey take?</span>
 <i aria-hidden="true" class="button-chevron fas fa-chevron-down text-purple-400 transition-transform duration-300"></i>
 </button>
-<div aria-hidden="false" class="faq-2 px-6 pb-6 text-gray-300 border border-purple-400 rounded-lg mt-1 hidden">
+<div aria-hidden="true" class="faq-2 px-6 pb-6 text-gray-300 border border-purple-400 rounded-lg mt-1 hidden">
 <p class="mt-4">The duration depends on planetary alignment, but typically our high-speed transports make the journey in about 3 months. We use gravity assists from Venus to optimize fuel efficiency and travel time. During transit, you'll enjoy luxury accommodations and various entertainment options.</p>
 </div>
 </div>
@@ -764,7 +768,7 @@ VIEW ALL FAQS <i aria-hidden="true" class="button-chevron fas fa-chevron-down ml
 </button>
 
 <!-- MORE FAQ COMING SOON-->
-<div aria-hidden="false" class="view-all-faq bg-gray-600 py-5 m-4 rounded-lg text-white hidden">
+<div aria-hidden="true" class="view-all-faq bg-gray-600 py-5 m-4 rounded-lg text-white hidden">
 <p class=" orbitron font-bold">MORE FAQ LANDING SOON</p>
 </div>
 </div>
@@ -884,12 +888,15 @@ SPEAK TO A CONSULTANT
 
 <!--CONTACT FORM-->
 <div class="bg-gray-800 rounded-xl p-8">
-<form id="contact-form" novalidate>
 
+
+<form id="contact-form" novalidate>
+<fieldset>
 <!-- FULL NAME --> 
+<legend class="text-[clamp(1rem,7vw,2rem)] font-bold">CONTACT FORM</legend>
 <div>
 <label for="full-name" class="block flex justify-between text-white mb-2">Your Name: First and Last</label>
-<input aria-describedby="full-name-error" autocomplete="name" aria-invalid="false" type="text" id="full-name" name="full-name" required aria-required="true" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-purple-600">
+<input autocomplete="name" aria-invalid="false" type="text" id="full-name" name="full-name" required aria-required="true" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-purple-600">
 <p id="full-name-error" class="text-red-400 mt-1 hidden">Please enter your full name.</p>
 </div>
 <p aria-hidden="true" class="font-bold mb-6 text-white">(required)</p>
@@ -897,7 +904,7 @@ SPEAK TO A CONSULTANT
 <!-- E-MAIL-->
 <div>
 <label for="email" class="block flex break-all justify-between text-white mb-2">Email Address: user@example.com</label>
-<input aria-describedby="email-error" aria-autocomplete="email" autocomplete="email" type="email" id="email" name="email" required aria-required="true"
+<input aria-autocomplete="email" autocomplete="email" type="email" id="email" name="email" required aria-required="true"
 class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-purple-600">
 <p id="email-error" class="text-red-400 text-sm mt-1 hidden">Please enter a valid email address.</p>
 </div>
@@ -915,7 +922,7 @@ Package Interest
 
 <div class="select-wrapper relative w-full max-w-md">
 
-<select id="interest" name="interest" required aria-required="true" class="appearance-none w-full px-4 py-3 pr-10 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-purple-600">
+<select aria-describedby="interest-error" id="interest" name="interest" required aria-required="true" class="appearance-none w-full px-4 py-3 pr-10 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-purple-600">
 <option value="" disabled selected>Select one</option>
 <option>Mercury Flyby</option>
 <option>Mercury Landing</option>
@@ -924,10 +931,10 @@ Package Interest
 </select>
 
 <div class="pointer-events-none absolute inset-y-0 right-4 bottom-8 flex items-center text-white">
-<i aria-hidden="true" aria-describedby="interest-error" class="select-chevron fas fa-chevron-down text-base sm:text-lg md:text-xl"></i>
+<i aria-hidden="true" aria-describedby="interest-error" class="relative select-chevron fas fa-chevron-down text-base sm:text-lg md:text-xl"></i>
 </div>
 
-<p id="interest-error" class="text-red-400 text-sm mt-1 hidden">Please select a package option.</p>
+<p id="interest-error" aria-hidden="true" class="text-red-400 text-sm mt-1 hidden">Please select a package option.</p>
 <p class="font-bold mt-2 text-white">(required)</p>
 </div>
 </div>
@@ -956,6 +963,7 @@ SUBMIT <i aria-hidden="true" class="hidden lg:inline fas fa-paper-plane ml-2 mt-
 </div>
 </div>
 </button>
+</fieldset>
 </form>
 </div>
 </div>
@@ -1121,10 +1129,10 @@ class="tooltip w-8 h-10 flex items-center justify-center block bg-gray-800 p-2 r
 <!--SUBSCIBE-->
 <div class="mt-6">
 <h3 class="text-white font-bold mb-2">Subscribe to Newsletter</h3>
-<label for="your email-0" class="block text-white">Enter Your Email:</label>
+<label for="your-email-0" class="block text-white">Enter Your Email:</label>
 <div class="flex">
-<input id="your email-0" aria-autocomplete="e-mail" autocomplete="e-mail" type="email" class="border-dotted border-2 border-white focus:border-solid px-4 py-2 rounded-l-lg bg-gray-800 text-white w-full">
-<button type="submit" class="relative px-[clamp(1.5rem,8vw,2rem)] bg-purple-600 focus:bg-purple-800 hover:bg-purple-800 text-white rounded-r-lg overflow-hidden">
+<input id="your-email-0" aria-autocomplete="e-mail" autocomplete="e-mail" type="email" class="border-dotted border-2 border-white focus:border-solid px-4 py-2 rounded-l-lg bg-gray-800 text-white w-full">
+<button type="button" class="relative px-[clamp(1.5rem,8vw,2rem)] bg-purple-600 focus:bg-purple-800 hover:bg-purple-800 text-white rounded-r-lg overflow-hidden">
 <span aria-hidden="true" class="absolute inset-0 m-[4px] bg-black bg-opacity-40 rounded-r-lg z-0"></span>
 <div class="flex items-center justify-center relative z-10">
 <span class="hidden lg:flex orbitron">
@@ -1224,21 +1232,6 @@ class="relative bg-gray-900 p-[clamp(1rem,2vw,2rem)] rounded-lg shadow-lg w-full
 
 
 <!--JAVASCRIPT------------------------------------->
-<script src="accessible.js" defer>
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contact-form");
-    console.log("Form found:", form);
-    if (form) {
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("Form submit intercepted!");
-      });
-    } else {
-      console.error("No form found!");
-    }
-  });
-
-</script>
+<script src="accessible.js" defer></script>
 </body>
 </html>
